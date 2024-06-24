@@ -1,25 +1,29 @@
 <template>
-    <div class="card" :style="{ borderColor: gender === 'ale'? 'gold' : 'green' }">
-      <slot name="header"></slot>
-      <slot name="content"></slot>
+  <div>
+    <h2>Cars</h2>
+    <div class="card-list">
+      <slot name="cars"></slot>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    props: {
-      gender: {
-        type: String,
-        required: true
-      }
-    }
-  }
-  </script>
-  
-  <style>
-  .card {
-    border: 1px solid;
-    padding: 10px;
-    margin: 10px;
-  }
-  </style>
+
+    <h2>Gaming Consoles</h2>
+    <div class="card-list">
+      <slot name="consoles"></slot>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'CardComp',
+};
+</script>
+
+<style scoped>
+.card-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+
+</style>
